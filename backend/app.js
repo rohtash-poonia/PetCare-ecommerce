@@ -5,6 +5,7 @@ require("dotenv").config();
 const PORT = process.env.PORT
 const cors = require("cors");
 const { connectDb } = require("./src/config/db");
+const indexRoutes = require("./src/routes/index.route");
 
 
 
@@ -19,6 +20,16 @@ app.use(
     methods: ["POST", "GET"],
   }),
 );
+
+// Error handling middleware for invalid JSON input
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
+    return res.status(400).json({ success: false, message: "Invalid JSON format in request body" });
+  }
+  next(err);
+});
+
+app.use("/api", indexRoutes);
 
 app.listen(PORT,()=>{
   console.log(`server sucessfully connectes on ${PORT}`)
