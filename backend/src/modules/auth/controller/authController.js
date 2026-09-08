@@ -1,7 +1,6 @@
-
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const userModel = require("./userModel");
+const userModel = require("../model/userModel");
 
 const authController = {
   registerUser: async (req, res) => {
@@ -34,7 +33,6 @@ const authController = {
         username,
         email: email.toLowerCase(),
         password: hashedPassword,
-       
       });
 
       const userResponse = newUser.toObject();
