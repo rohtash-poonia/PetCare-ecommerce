@@ -9,6 +9,7 @@ router.use("/products", require("./productRoute"));
 router.use("/category", require("./categoryRoute"));
 router.use("/cart", require("./cartRoute"));
 router.use("/order", require("./orderRoute"));
+router.use("/wishlist",require("./wishlistRoute"))
 
 
 module.exports = router;
