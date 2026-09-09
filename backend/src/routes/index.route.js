@@ -8,6 +8,7 @@ router.use("/RESET-password", require("./resetPasswordVerifyotpRoute"));
 router.use("/products", require("./productRoute"));
 router.use("/category", require("./categoryRoute"));
 router.use("/cart", require("./cartRoute"));
+router.use("/order", require("./orderRoute"));
 
 
 module.exports = router;
