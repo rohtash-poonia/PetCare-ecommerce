@@ -1,6 +1,9 @@
-
 const express = require("express");
-const { getWishlist, addToWishlist, removeFromWishlist } = require("../modules/wishlist/wishlistController");
+const {
+  getWishlist,
+  addToWishlist,
+  removeFromWishlist,
+} = require("./wishlistController");
 
 const router = express.Router();
 
@@ -14,4 +17,3 @@ router.post("/add", addToWishlist);
 router.delete("/:productid", removeFromWishlist);
 
 module.exports = router;
-

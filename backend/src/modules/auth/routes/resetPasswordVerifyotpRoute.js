@@ -1,5 +1,5 @@
 const express = require("express");
-const { verifyOtp } = require("../modules/auth/controller/otpVerification");
+const { verifyOtp } = require("../controller/otpVerification");
 
 const router = express.Router();
 
