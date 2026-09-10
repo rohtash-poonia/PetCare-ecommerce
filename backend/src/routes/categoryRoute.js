@@ -1,30 +1,29 @@
-
 const express = require("express");
 
+// yahan category ke controller import ho rahe hain
 const {
   createCategory,
   getCategories,
   getCategoryById,
   updateCategory,
   deleteCategory,
-} = require("../controllers/categoryController");
+} = require("../modules/category/categoryController");
 
 const router = express.Router();
 
-// Create Category
+// new category banao
 router.post("/", createCategory);
 
-// Get All Categories
+// sab categories dekho
 router.get("/", getCategories);
 
-// Get Single Category
+// ek specific category dekho
 router.get("/:id", getCategoryById);
 
-// Update Category
+// category update karo
 router.put("/:id", updateCategory);
 
-// Delete Category
+// category delete karo
 router.delete("/:id", deleteCategory);
 
 module.exports = router;
-

@@ -1,6 +1,6 @@
 const Category = require("./cateroryModel");
 
-// CREATE CATEGORY
+// category create karne ka logic yahan hai
 exports.createCategory = async (req, res) => {
   try {
     const { name, description, image } = req.body;
@@ -43,7 +43,7 @@ exports.createCategory = async (req, res) => {
   }
 };
 
-// GET ALL CATEGORIES
+// sab categories ko fetch karne ka logic
 exports.getCategories = async (req, res) => {
   try {
     const categories = await Category.find().sort({ createdAt: -1 });
@@ -62,7 +62,7 @@ exports.getCategories = async (req, res) => {
   }
 };
 
-// GET SINGLE CATEGORY
+// ek specific category ko id se fetch karna
 exports.getCategoryById = async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
@@ -87,7 +87,7 @@ exports.getCategoryById = async (req, res) => {
   }
 };
 
-// UPDATE CATEGORY
+// category ko update karne ka logic
 exports.updateCategory = async (req, res) => {
   try {
     const { name, description, image, isActive } = req.body;
@@ -127,7 +127,7 @@ exports.updateCategory = async (req, res) => {
   }
 };
 
-// DELETE CATEGORY
+// category ko delete karne ka logic
 exports.deleteCategory = async (req, res) => {
   try {
     const category = await Category.findByIdAndDelete(req.params.id);

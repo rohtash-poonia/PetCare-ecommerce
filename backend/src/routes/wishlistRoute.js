@@ -2,8 +2,6 @@
 const express = require("express");
 const { getWishlist, addToWishlist, removeFromWishlist } = require("../modules/wishlist/wishlistController");
 
-
-
 const router = express.Router();
 
 // GET Wishlist
