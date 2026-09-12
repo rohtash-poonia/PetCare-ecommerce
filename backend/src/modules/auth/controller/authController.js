@@ -121,6 +121,13 @@ const authController = {
       // Remove the password field from the response object for security
       delete userObj.password;
 
+      // Set the token in an HTTP-only cookie for enhanced security
+      res.cookie("accesstoken", accesstoken, {
+        httpOnly: true, // Prevents client-side JS from accessing the cookie
+        secure: process.env.NODE_ENV === "production", // Ensures cookie is sent only over HTTPS in production
+        maxAge: 7 * 24 * 60 * 60 * 1000, // Cookie expiration set to 7 days (matching the JWT expiration)
+      });
+
       // Return a 200 OK response indicating successful login
       return res.status(200).json({
         success: true, // Indicate success
